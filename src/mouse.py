@@ -19,3 +19,20 @@ def create():
         print('Value is invalid')
     finally :
         return mouse_id
+    
+def index():
+    print("\nSituation         Quantity    Percentage")
+    defect_value = 0
+    mouse_total = len(settings.mouse)
+    while defect_value < 4:
+        defect_value +=1
+        _defect = len(list(filter(lambda _mouse: _mouse['defect'] == defect_value, settings.mouse)))
+        percentage = float((100*_defect)/mouse_total)
+        if defect_value == 1:
+            print(f'1-needs scroll             {_defect} {percentage}')
+        if defect_value == 2:
+            print(f'2-needs cleaning           {_defect} {percentage}')
+        if defect_value == 3:
+            print(f'3-needs cable or connector {_defect} {percentage}')
+        if defect_value == 4:
+            print(f'4-broken or unusable       {_defect} {percentage}')
